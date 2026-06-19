@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Circle K × Picker — Impacto Mundial 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: hsl(212 100% 97%);
+      --card: hsl(0 0% 100%);
+      --border: hsl(214 33% 91%);
+      --text: hsl(229 35% 16%);
+      --sub: hsl(222 18% 38%);
+      --muted: hsl(216 30% 60%);
+      --celeste: hsl(193 100% 45%);
+      --celeste-dim: hsl(193 100% 45% / .1);
+      --celeste-mid: hsl(193 100% 45% / .28);
+      --green: hsl(162 100% 36%);
+      --green-dim: hsl(162 100% 44% / .1);
+      --green-mid: hsl(162 100% 44% / .28);
+      --green-text: hsl(162 100% 28%);
+      --amber: hsl(43 100% 40%);
+      --amber-bg: hsl(43 100% 60% / .13);
+      --amber-mid: hsl(43 100% 45% / .35);
+      --red: hsl(346 100% 42%);
+      --red-bg: hsl(346 100% 60% / .1);
+      --red-mid: hsl(346 100% 45% / .28);
+    }
+    html, body {
+      min-height: 100vh;
+      background: var(--bg);
+      font-family: 'Montserrat', sans-serif;
+      color: var(--text);
+      display: flex; align-items: center; justify-content: center;
+      padding: 32px 24px;
+    }
+    .slide {
+      width: 100%; max-width: 1160px;
+    }
+
+    /* HEADER */
+    .header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 32px;
+    }
+    .logo-row { display: flex; align-items: center; gap: 12px; }
+    .logo-ck {
+      background: hsl(42 100% 50%);
+      color: hsl(229 35% 12%);
+      font-size: 10px; font-weight: 900; letter-spacing: .18em;
+      text-transform: uppercase; padding: 5px 13px; border-radius: 6px;
+    }
+    .logo-sep { font-size: 13px; color: var(--muted); }
+    .logo-pk {
+      font-size: 10px; font-weight: 900; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--celeste);
+      border: 1.5px solid var(--celeste-mid); padding: 4px 12px; border-radius: 6px;
+    }
+    .date-tag {
+      font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* WC TAG */
+    .wc-tag {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--amber-bg); border: 1px solid var(--amber-mid);
+      border-radius: 6px; padding: 5px 12px;
+      font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--amber); margin-bottom: 12px;
+    }
+    .wc-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--amber);
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .4; transform: scale(.7); }
+    }
+
+    /* HEADLINE */
+    .headline {
+      font-size: clamp(22px, 2.8vw, 32px);
+      font-weight: 900; line-height: 1.15; color: var(--text);
+      margin-bottom: 8px;
+    }
+    .headline em { color: var(--celeste); font-style: normal; }
+    .subhead {
+      font-size: 13px; color: var(--sub); font-weight: 500;
+      margin-bottom: 32px; line-height: 1.6;
+    }
+    .subhead strong { color: var(--text); font-weight: 700; }
+
+    /* DIVIDER */
+    .divider { height: 1px; background: var(--border); margin-bottom: 28px; }
+
+    /* MAIN GRID */
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr 1px 1.15fr;
+      gap: 0; margin-bottom: 24px; align-items: start;
+    }
+    .col { padding: 0 28px; }
+    .col:first-child { padding-left: 0; }
+    .col:last-child { padding-right: 0; }
+    .col-sep { background: var(--border); }
+
+    .col-label {
+      font-size: 9.5px; font-weight: 800; letter-spacing: .14em;
+      text-transform: uppercase; margin-bottom: 12px;
+    }
+    .col-label.red { color: var(--red); }
+    .col-label.amber { color: var(--amber); }
+    .col-label.green { color: var(--green-text); }
+
+    .big-num {
+      font-size: clamp(34px, 4.5vw, 56px);
+      font-weight: 900; line-height: 1; margin-bottom: 6px;
+    }
+    .big-num.red { color: var(--red); }
+    .big-num.amber { color: var(--amber); }
+    .big-num.green { color: var(--green-text); }
+
+    .num-card {
+      border-radius: 10px; padding: 14px 16px; margin-bottom: 16px;
+    }
+    .num-card.red { background: var(--red-bg); border: 1px solid var(--red-mid); }
+    .num-card.amber { background: var(--amber-bg); border: 1px solid var(--amber-mid); }
+    .num-card.green { background: var(--green-dim); border: 1px solid var(--green-mid); }
+
+    .num-desc {
+      font-size: 11.5px; color: var(--sub); font-weight: 500;
+      line-height: 1.5; margin-top: 4px;
+    }
+    .num-desc strong { color: var(--text); font-weight: 700; }
+
+    .stat-row { display: flex; flex-direction: column; gap: 8px; }
+    .stat-item {
+      display: flex; align-items: flex-start; gap: 9px;
+      font-size: 11px; color: var(--sub); line-height: 1.45; font-weight: 500;
+    }
+    .dot { min-width: 6px; height: 6px; border-radius: 50%; margin-top: 4px; flex-shrink: 0; }
+    .dot.red { background: var(--red); }
+    .dot.amber { background: var(--amber); }
+    .dot.green { background: var(--green); }
+    .dot.celeste { background: var(--celeste); }
+    .stat-item strong { color: var(--text); font-weight: 700; }
+
+    /* BOTTOM BANNER */
+    .banner {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px 28px;
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr 1px 1fr;
+      gap: 0;
+      align-items: center;
+      box-shadow: 0 2px 12px hsl(229 35% 16% / .06);
+    }
+    .banner-col { padding: 0 24px; text-align: center; }
+    .banner-col:first-child { padding-left: 0; text-align: left; }
+    .banner-col:last-child { padding-right: 0; text-align: right; }
+    .banner-sep { background: var(--border); height: 48px; }
+    .banner-label {
+      font-size: 9px; font-weight: 800; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 5px;
+    }
+    .banner-val {
+      font-size: clamp(16px, 2vw, 24px); font-weight: 900; color: var(--text);
+    }
+    .banner-val.green { color: var(--green-text); }
+    .banner-val.celeste { color: var(--celeste); }
+    .banner-sub { font-size: 10px; color: var(--muted); margin-top: 3px; font-weight: 500; }
+
+    /* FOOTER */
+    .footer {
+      margin-top: 22px;
+      display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    }
+    .footer-note {
+      font-size: 10px; color: var(--muted); font-weight: 500; line-height: 1.6;
+    }
+    .cta {
+      background: var(--celeste);
+      color: #fff;
+      font-size: 11px; font-weight: 800; letter-spacing: .08em;
+      text-transform: uppercase; padding: 12px 24px;
+      border-radius: 8px; white-space: nowrap;
+      box-shadow: 0 2px 12px hsl(193 100% 45% / .3);
+    }
+  </style>
+</head>
+<body>
+<div class="slide">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="logo-row">
+      <div class="logo-ck">Circle K</div>
+      <div class="logo-sep">×</div>
+      <div class="logo-pk">Picker</div>
+    </div>
+    <div class="date-tag">Junio 2026</div>
+  </div>
+
+  <!-- HEADLINE -->
+  <div class="wc-tag">
+    <div class="wc-dot"></div>
+    Mundial 2026 — En vivo ahora
+  </div>
+  <div class="headline">Tu app creció.<br/><em>Tu delivery sigue con un solo proveedor.</em></div>
+  <div class="subhead">
+    Esto es lo que le está costando a Circle K <strong>cada mes</strong> operar sin respaldo —
+    exactamente en el momento de mayor demanda del año.
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 3 COLUMNS -->
+  <div class="main-grid">
+
+    <!-- HOY -->
+    <div class="col">
+      <div class="col-label red">Hoy — app activa, 1 proveedor</div>
+      <div class="num-card red">
+        <div class="big-num red">$105K</div>
+        <div class="num-desc">MXN en revenue <strong>que no llega</strong> al cliente cada mes</div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-item"><div class="dot red"></div><span>~3,000 pedidos/mes con la app nueva</span></div>
+        <div class="stat-item"><div class="dot red"></div><span><strong>10% sin entrega</strong> — tasa de falla real con 1 proveedor</span></div>
+        <div class="stat-item"><div class="dot red"></div><span>300 pedidos caídos × $350 MXN = <strong>$105,000 MXN/mes</strong></span></div>
+        <div class="stat-item"><div class="dot red"></div><span>Sin visibilidad para el cliente — sin tracking, sin aviso</span></div>
+      </div>
+    </div>
+
+    <div class="col-sep"></div>
+
+    <!-- MUNDIAL -->
+    <div class="col">
+      <div class="col-label amber">Pico Mundial — jun / jul</div>
+      <div class="num-card amber">
+        <div class="big-num amber">$147K</div>
+        <div class="num-desc">MXN en revenue caído durante el torneo con <strong>+40% de pedidos</strong> en partidos de México</div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-item"><div class="dot amber"></div><span>~4,200 pedidos/mes en peak de partidos</span></div>
+        <div class="stat-item"><div class="dot amber"></div><span>420 pedidos sin repartidor → <strong>$147,000 MXN perdidos</strong></span></div>
+        <div class="stat-item"><div class="dot amber"></div><span>Los riders de Uber se saturan en horario de partido</span></div>
+        <div class="stat-item"><div class="dot amber"></div><span>Sin backup = sin segunda oportunidad de entrega</span></div>
+      </div>
+    </div>
+
+    <div class="col-sep"></div>
+
+    <!-- CON PICKER -->
+    <div class="col">
+      <div class="col-label green">Con Picker activo</div>
+      <div class="num-card green">
+        <div class="big-num green">$8,400</div>
+        <div class="num-desc">MXN en pedidos caídos — <strong>96% fulfillment</strong> con red completa de proveedores como respaldo</div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-item"><div class="dot green"></div><span>Uber satura → Picker activa Rappi, Lalamove y otros en automático</span></div>
+        <div class="stat-item"><div class="dot green"></div><span>De 420 pedidos caídos → solo <strong>24 sin entrega</strong></span></div>
+        <div class="stat-item"><div class="dot green"></div><span>Tracking branded Circle K en WhatsApp del cliente</span></div>
+        <div class="stat-item"><div class="dot celeste"></div><span><strong>Piloto CDMX: 1 tienda, 30 días</strong> — acordado desde marzo</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- BANNER -->
+  <div class="banner">
+    <div class="banner-col">
+      <div class="banner-label">Revenue recuperado / mes (peak Mundial)</div>
+      <div class="banner-val green">+$138,600 MXN</div>
+      <div class="banner-sub">con Picker activo como respaldo</div>
+    </div>
+    <div class="banner-sep"></div>
+    <div class="banner-col">
+      <div class="banner-label">Tiempo para activar el piloto</div>
+      <div class="banner-val">2–3 semanas</div>
+      <div class="banner-sub">desde firma de NDA — ya negociado</div>
+    </div>
+    <div class="banner-sep"></div>
+    <div class="banner-col">
+      <div class="banner-label">Estado del acuerdo</div>
+      <div class="banner-val celeste">Listo para arrancar</div>
+      <div class="banner-sub">propuesta, VTEX, NDA y contrato definidos</div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-note">
+      Estimado base: 3,000 env/mes (app activa) · Ticket $350 MXN · Falla Uber Direct 10% (dato real) · Picker 96% fulfillment<br/>
+      Pico Mundial: +40% volumen en partidos de México · Modelo conservador
+    </div>
+    <div class="cta">¿Cuándo activamos el piloto?</div>
+  </div>
+
+</div>
+</body>
+</html>
